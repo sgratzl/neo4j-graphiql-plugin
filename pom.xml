@@ -2,7 +2,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>org.sgratzl</groupId>
+	<groupId>com.sgratzl</groupId>
 	<artifactId>neo4j-graphiql-plugin</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
@@ -38,8 +38,14 @@
     <developerConnection>scm:git:git@github.com:sgratzl/neo4j-graphiql-plugin.git</developerConnection>
     <url>git@github.com:sgratzl/neo4j-graphiql-plugin.git</url>
   </scm>
+
 	<build>
 		<finalName>${project.artifactId}-${project.version}</finalName>
+    <resources>
+      <resource>
+        <directory>target/generated-resources/frontend</directory>
+      </resource>
+    </resources>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>

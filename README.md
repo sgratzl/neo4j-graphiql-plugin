@@ -22,6 +22,12 @@ dbms.unmanaged_extension_classes=org.neo4j.graphql=/graphql,com.sgratzl.neo4j.gr
 
 NOTE: _Neo4j Desktop_: the configuration is available under *Manage -> Settings*, the `plugins` folder via *Open Folder*.
 
+
+Usage
+-----
+
+Navigate to `<neo4jurl>/graphiql/` **Note the trailing slash**
+
 Building
 --------
 

@@ -4,8 +4,8 @@
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack -p --output-path ../../../target/generated-sources/WEB-INF/public",
-    "build:dev": "webpack -d --output-path ../../../target/generated-sources/WEB-INF/public"
+    "build": "webpack -p --output-path ../../../target/generated-resources/frontend/WEB-INF/public",
+    "build:dev": "webpack -d --output-path ../../../target/generated-resources/frontend/WEB-INF/public"
   },
   "author": "",
   "license": "MIT",

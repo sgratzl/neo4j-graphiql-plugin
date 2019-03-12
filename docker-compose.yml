@@ -1,0 +1,17 @@
+version: '2.0'
+services:
+  neo4j:
+    build:
+      context: ./deploy/neo4j
+    ports:
+      - 7474:7474
+      - 7687:7687
+    environment:
+      - NEO4J_dbms_unmanaged__extension__classes=org.neo4j.graphql=/graphql,com.sgratzl.neo4j.graphiql.plugin=/graphiql
+      - NEO4J_dbms_security_procedures_whitelist=graphql.*,apoc.*
+      - NEO4J_dbms_security_procedures_unrestricted=apoc.*,graphql.*
+      - NEO4J_apoc_import_file_enabled=true
+      - NEO4J_apoc_export_file_enabled=true
+      - NEO4J_dbms_shell_enabled=true
+    volumes:
+      - './target/neo4j-graphiql-plugin-1.0.0-SNAPSHOT.jar:/var/lib/neo4j/plugins/neo4j-graphiql-plugin-1.0.0-SNAPSHOT.jar'
