@@ -1,9 +1,9 @@
 const path = require('path');
 
 module.exports = {
-  entry: './src/index.tsx',
+  entry: './src/main/frontend/index.tsx',
   output: {
-    path: path.resolve('../../../target/generated-resources/frontend/WEB-INF/public'),
+    path: path.resolve('./target/generated-resources/frontend/WEB-INF/public'),
     filename: 'main.js'
   },
   module: {
