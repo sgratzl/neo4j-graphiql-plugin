@@ -1,0 +1,24 @@
+{
+  "name": "neo4j-graphiql-plugin",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack -p --output-path ../src/main/resources/WEB-INF/public",
+    "build:dev": "webpack -d --output-path ../src/main/resources/WEB-INF/public"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "file-loader": "^3.0.1",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.2.3"
+  },
+  "dependencies": {
+    "graphiql": "^0.13.0",
+    "graphql": "^14.1.1",
+    "isomorphic-fetch": "^2.2.1",
+    "react": "^16.8.3",
+    "react-dom": "^16.8.3"
+  }
+}

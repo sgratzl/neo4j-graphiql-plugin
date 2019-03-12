@@ -39,7 +39,7 @@ Setup in Neo4j
 
 [mit-image]: https://img.shields.io/badge/License-MIT-yellow.svg
 [mit-url]: https://opensource.org/licenses/MIT
-[ci-image]: https://circleci.com/gh/sgratzl/neo4j-graphiql-plugin.svg?branch=master
+[ci-image]: https://circleci.com/gh/sgratzl/neo4j-graphiql-plugin.svg?style=shield
 [ci-url]: https://circleci.com/gh/sgratzl/neo4j-graphiql-plugin
-[ci-image-dev]: https://circleci.com/gh/sgratzl/neo4j-graphiql-plugin.svg?branch=develop
-[ci-url-dev]: https://circleci.com/gh/sgratzl/neo4j-graphiql-plugin
+[ci-image-dev]: https://circleci.com/gh/sgratzl/neo4j-graphiql-plugin/tree/develop.svg?style=shield
+[ci-url-dev]: https://circleci.com/gh/sgratzl/neo4j-graphiql-plugin/tree/develop
