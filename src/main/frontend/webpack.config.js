@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  entry: './src/index.jsx',
+  entry: './src/index.tsx',
   output: {
     path: path.resolve('../../../target/generated-resources/frontend/WEB-INF/public'),
     filename: 'main.js'
@@ -9,10 +9,10 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.tsx?$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader"
+          loader: "ts-loader"
         }
       },
       {
@@ -20,5 +20,8 @@ module.exports = {
         use: ["style-loader", "css-loader"]
       }
     ]
+  },
+  resolve: {
+    extensions: ['.js', '.ts', '.tsx']
   }
 };
