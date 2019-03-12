@@ -4,12 +4,32 @@ Neo4j GraphiQL Plugin for Neo4j
 
 This is a plugin for the [Neo4j graph database](http://neo4j.com/) (v3.5) that provides the [GraphiQL](https://github.com/graphql/graphiql) web application via `<neo4jurl>/graphiql/` url.
 
+
 Installation
 ------------
 
+1. Download the https://github.com/sgratzl/neo4j-graphiql-plugin/releases for your version.
+2. Copy the _jar-file_ into Neo4j's `plugins` directory
+3. Edit the Neo4j settings (`$NEO4J_HOME/conf/neo4j.conf`) to add:
+ ```
+dbms.unmanaged_extension_classes=com.sgratzl.neo4j.graphiql.plugin=/graphiql
 ```
+
+5. (Re)start your Neo4j server
+
+NOTE: _Neo4j Desktop_: the configuration is available under *Manage -> Settings*, the `plugins` folder via *Open Folder*.
+
+Building
+--------
+
+```bash
 git clone https://github.com/sgratzl/neo4j-graphiql-plugin.git
 cd neo4j-graphiql-plugin
+git checkout {branch}
+mvn clean package
+cp target/neo4j-graphiql-plugin-*.jar $NEO4J_HOME/plugins
+echo 'dbms.unmanaged_extension_classes=com.sgratzl.neo4j.graphiql.plugin=/graphiql' >> $NEO4J_HOME/conf/neo4j.conf
+$NEO4J_HOME/bin/neo4j restart
 ```
 
 Testing
@@ -18,23 +38,6 @@ Testing
 ```
 mvn test
 ```
-
-Building
---------
-
-```
-mvn package
-```
-
-Eclipse import
---------------
-Just import as Maven Project.
-
-Setup in Neo4j
---------------
- 1. Compile the project into a .jar file (in Eclipse right-click on project folder -> Run As -> Maven Install)
- 2. Put the generated .jar file into the `/plugins` folder of the Neo4j installation
- 3. TODO
  
 
 [mit-image]: https://img.shields.io/badge/License-MIT-yellow.svg
