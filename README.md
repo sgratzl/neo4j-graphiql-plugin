@@ -11,11 +11,10 @@ Installation
 1. Download the https://github.com/sgratzl/neo4j-graphiql-plugin/releases for your version.
 2. Copy the _jar-file_ into Neo4j's `plugins` directory
 3. Edit the Neo4j settings (`$NEO4J_HOME/conf/neo4j.conf`) to add:
- ```
+  ```
 dbms.unmanaged_extension_classes=com.sgratzl.neo4j.graphiql.plugin=/graphiql
 ```
-
-5. (Re)start your Neo4j server
+4. (Re)start your Neo4j server
 
 NOTE: _Neo4j Desktop_: the configuration is available under *Manage -> Settings*, the `plugins` folder via *Open Folder*.
 
