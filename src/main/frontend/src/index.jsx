@@ -1,5 +1,5 @@
 import 'file-loader?name=./index.html!./index.html';
-import 'file-loader?name=./main.css!graphiql/graphiql.css';
+import './index.css';
 import React from 'react';
 import {render} from 'react-dom';
 import GraphiQL from 'graphiql';
@@ -75,14 +75,13 @@ function graphQLFetcher(graphQLParams) {
 // how you can customize GraphiQL by providing different values or
 // additional child elements.
 render(
-  React.createElement(GraphiQL, {
-    fetcher: graphQLFetcher,
-    query: parameters.query,
-    variables: parameters.variables,
-    operationName: parameters.operationName,
-    onEditQuery: onEditQuery,
-    onEditVariables: onEditVariables,
-    onEditOperationName: onEditOperationName
-  }),
+  <GraphiQL fetcher={graphQLFetcher}
+    query={parameters.query}
+    variables={parameters.variables}
+    operationName={parameters.operationName}
+    onEditQuery={onEditQuery}
+    onEditVariables={onEditVariables}
+    onEditOperationName={onEditOperationName}
+  />,
   document.getElementById('graphiql')
 );
