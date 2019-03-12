@@ -4,7 +4,7 @@ import java.io.InputStream;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 
-@Path("ui")
+@Path("")
 public class GraphiQLResource {
 
   private Response render(String path) {

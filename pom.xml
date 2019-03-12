@@ -22,22 +22,22 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <java.version>1.8</java.version>
     <neo4j.version>3.5.0</neo4j.version>
+    <node.version>v10.15.0</node.version>
 	</properties>
 
-    <developers>
-      <developer>
-        <id>sgratzl</id>
-        <name>Samuel Gratzl</name>
-        <email>sam@sgratzl.com</email>
-      </developer>
-    </developers>
+  <developers>
+    <developer>
+      <id>sgratzl</id>
+      <name>Samuel Gratzl</name>
+      <email>sam@sgratzl.com</email>
+    </developer>
+  </developers>
 
-    <scm>
-      <connection>scm:git:git@github.com:sgratzl/neo4j-graphiql-plugin.git</connection>
-      <developerConnection>scm:git:git@github.com:sgratzl/neo4j-graphiql-plugin.git</developerConnection>
-      <url>git@github.com:sgratzl/neo4j-graphiql-plugin.git</url>
-    </scm>
-
+  <scm>
+    <connection>scm:git:git@github.com:sgratzl/neo4j-graphiql-plugin.git</connection>
+    <developerConnection>scm:git:git@github.com:sgratzl/neo4j-graphiql-plugin.git</developerConnection>
+    <url>git@github.com:sgratzl/neo4j-graphiql-plugin.git</url>
+  </scm>
 	<build>
 		<finalName>${project.artifactId}-${project.version}</finalName>
 		<plugins>
@@ -63,6 +63,40 @@
 					</execution>
 				</executions>
 			</plugin>
+
+      <plugin>
+        <groupId>com.github.eirslett</groupId>
+        <artifactId>frontend-maven-plugin</artifactId>
+        <version>1.7.5</version>
+        <configuration>
+          <workingDirectory>src/main/frontend</workingDirectory>
+          <installDirectory>target</installDirectory>
+          <nodeVersion>${node.version}</nodeVersion>
+        </configuration>
+        <executions>
+          <execution>
+            <id>install node and npm</id>
+            <goals>
+              <goal>install-node-and-npm</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>npm install</id>
+            <goals>
+              <goal>npm</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>npm run build</id>
+            <goals>
+              <goal>npm</goal>
+            </goals>
+            <configuration>
+              <arguments>run build</arguments>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
 		</plugins>
 	</build>
 

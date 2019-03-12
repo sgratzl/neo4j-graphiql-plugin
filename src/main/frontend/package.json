@@ -4,8 +4,8 @@
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack -p --output-path ../src/main/resources/WEB-INF/public",
-    "build:dev": "webpack -d --output-path ../src/main/resources/WEB-INF/public"
+    "build": "webpack -p --output-path ../../../target/generated-sources/WEB-INF/public",
+    "build:dev": "webpack -d --output-path ../../../target/generated-sources/WEB-INF/public"
   },
   "author": "",
   "license": "MIT",
@@ -17,7 +17,6 @@
   "dependencies": {
     "graphiql": "^0.13.0",
     "graphql": "^14.1.1",
-    "isomorphic-fetch": "^2.2.1",
     "react": "^16.8.3",
     "react-dom": "^16.8.3"
   }
