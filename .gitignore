@@ -1,0 +1,8 @@
+/bin
+/target
+/tmp
+/test_neo4j_db
+.log
+.project
+.classpath
+.settings/

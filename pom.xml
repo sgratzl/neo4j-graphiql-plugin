@@ -1,0 +1,89 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>org.sgratzl</groupId>
+	<artifactId>neo4j-graphiql-plugin</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>neo4j-graphiql-plugin</name>
+	<url>https://github.com/sgratzl/neo4j-graphiql-plugin</url>
+
+    <licenses>
+        <license>
+            <name>MIT</name>
+            <url>https://choosealicense.com/licenses/mit/</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
+        <neo4j.version>3.5.0</neo4j.version>
+	</properties>
+
+    <developers>
+        <developer>
+            <id>sgratzl</id>
+            <name>Samuel Gratzl</name>
+            <email>sam@sgratzl.com</email>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git@github.com:sgratzl/neo4j-graphiql-plugin.git</connection>
+        <developerConnection>scm:git:git@github.com:sgratzl/neo4j-graphiql-plugin.git</developerConnection>
+        <url>git@github.com:sgratzl/neo4j-graphiql-plugin.git</url>
+    </scm>
+
+	<build>
+		<finalName>${project.artifactId}-${project.version}</finalName>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+                <version>3.5.1</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+                <version>2.4.3</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+            <version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+        <dependency>
+            <groupId>org.neo4j</groupId>
+            <artifactId>neo4j</artifactId>
+            <version>${neo4j.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.neo4j</groupId>
+            <artifactId>server-api</artifactId>
+            <version>${neo4j.version}</version>
+            <scope>provided</scope>
+        </dependency>
+	</dependencies>
+</project>
