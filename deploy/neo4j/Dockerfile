@@ -8,7 +8,7 @@ RUN wget -P /var/lib/neo4j/plugins ${APOC_URI}
 
 EXPOSE 7474 7473 7687
 
-ENV GRAPHQL_VERSION 3.5.0.1
+ENV GRAPHQL_VERSION 3.5.0.2
 ENV GRAPHQL_URI https://github.com/neo4j-graphql/neo4j-graphql/releases/download/${GRAPHQL_VERSION}/neo4j-graphql-${GRAPHQL_VERSION}.jar
 RUN wget -P /var/lib/neo4j/plugins ${GRAPHQL_URI}
 
