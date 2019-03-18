@@ -1,2 +1,13 @@
 
 @import '~graphiql/graphiql.css';
+
+body {
+  height: 100%;
+  margin: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+#graphiql {
+  height: 100vh;
+}

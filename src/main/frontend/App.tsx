@@ -11,6 +11,7 @@ interface IAppState {
   variables?: string;
   query?: string;
   operationName?: string;
+  schema: boolean;
 }
 
 export default class App extends React.Component<IAppProps, IAppState> {
@@ -20,7 +21,9 @@ export default class App extends React.Component<IAppProps, IAppState> {
     super(props, context);
 
     const search = window.location.search;
-    const parameters: IAppState = {};
+    const parameters: IAppState = {
+      schema: false
+    };
     search.substr(1).split('&').forEach(function (entry) {
       const eq = entry.indexOf('=');
       if (eq >= 0) {
@@ -74,7 +77,7 @@ export default class App extends React.Component<IAppProps, IAppState> {
 
   @bind
   private handleShowSchema() {
-    // TODO
+    this.setState({schema: !this.state.schema});
   }
 
   @bind
