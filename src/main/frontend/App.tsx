@@ -2,6 +2,7 @@
 import React from 'react';
 import {bind} from 'decko';
 import GraphiQL from 'graphiql';
+import Schema from './Schema';
 
 interface IAppProps {
 
@@ -93,7 +94,7 @@ export default class App extends React.Component<IAppProps, IAppState> {
   // use fetch, and could instead implement graphQLFetcher however you like,
   // as long as it returns a Promise or Observable.
   @bind
-  graphQLFetcher(graphQLParams: any) {
+  private graphQLFetcher(graphQLParams: any) {
     return fetch('/graphql/', {
       method: 'post',
       headers: {
@@ -112,8 +113,52 @@ export default class App extends React.Component<IAppProps, IAppState> {
       });
   }
 
+  @bind
+  private fetchSchema() {
+    return fetch('/graphql/idl', {
+      method: 'get',
+      credentials: 'include',
+    }).then((response) => response.text());
+  }
+
+  @bind
+  private postSchema(schema: string) {
+    return fetch('/graphql/idl', {
+      method: 'post',
+      body: schema,
+      credentials: 'include',
+    }).then((response) => response.text());
+  }
+
   render() {
     const parameters = this.state;
+
+    const toolbar = <GraphiQL.Toolbar>
+      <GraphiQL.Button
+        onClick={this.handlePrettifyQuery}
+        title="Prettify Query (Shift-Ctrl-P)"
+        label="Prettify"
+      />
+      <GraphiQL.Button
+        onClick={this.handleMergeQuery}
+        title="Merge Query (Shift-Ctrl-M)"
+        label="Merge"
+      />
+      <GraphiQL.Button
+        onClick={this.handleToggleHistory}
+        title="Show History"
+        label="History"
+      />
+      <GraphiQL.Button
+        onClick={this.handleShowSchema}
+        label="Schema"
+        title="Shema"
+      />
+    </GraphiQL.Toolbar>;
+
+    if (this.state.schema) {
+      return <Schema goBack={this.handleShowSchema} fetchSchema={this.fetchSchema} postSchema={this.postSchema} />;
+    }
 
     return <GraphiQL ref={(ref: any) => this.g = ref} fetcher={this.graphQLFetcher}
       query={parameters.query}
@@ -123,29 +168,7 @@ export default class App extends React.Component<IAppProps, IAppState> {
       onEditVariables={this.onEditVariables}
       onEditOperationName={this.onEditOperationName}
     >
-      <GraphiQL.Toolbar>
-        <GraphiQL.Button
-          onClick={this.handlePrettifyQuery}
-          title="Prettify Query (Shift-Ctrl-P)"
-          label="Prettify"
-        />
-        <GraphiQL.Button
-          onClick={this.handleMergeQuery}
-          title="Merge Query (Shift-Ctrl-M)"
-          label="Merge"
-        />
-        <GraphiQL.Button
-          onClick={this.handleToggleHistory}
-          title="Show History"
-          label="History"
-        />
-        <GraphiQL.Button
-          onClick={this.handleShowSchema}
-          label="Show Schema"
-          title="Show Shema"
-        />
-      </GraphiQL.Toolbar>
-
+      {toolbar}
     </GraphiQL>;
     }
   }
