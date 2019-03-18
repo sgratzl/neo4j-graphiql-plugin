@@ -4,8 +4,10 @@
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "tsc -p .",
     "build": "webpack -p",
-    "build:dev": "webpack -d"
+    "build:dev": "webpack -d",
+    "start": "webpack-dev-server --open=chrome"
   },
   "private": true,
   "author": {
@@ -21,7 +23,8 @@
     "ts-loader": "^5.3.3",
     "typescript": "^3.3.3333",
     "webpack": "^4.29.6",
-    "webpack-cli": "^3.2.3"
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.2.1"
   },
   "dependencies": {
     "@types/react": "^16.8.7",
