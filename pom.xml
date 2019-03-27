@@ -110,7 +110,7 @@
         <configuration>
           <description>Initial Release</description>
           <releaseName>${project.version}</releaseName>
-          <tag>${project.version}</tag>
+          <tag>v${project.version}</tag>
         </configuration>
     </plugin>
 		</plugins>
