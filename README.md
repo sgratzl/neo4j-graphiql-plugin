@@ -28,6 +28,9 @@ Usage
 
 Navigate to `<neo4j-url>/graphiql/` **Note the trailing slash**
 
+
+**Note**: The schema editor is only working with the upcoming release of the Neo4j GraphQL plugin including my PR https://github.com/neo4j-graphql/neo4j-graphql/pull/168
+
 Building
 --------
 
