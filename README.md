@@ -2,7 +2,7 @@ Neo4j GraphiQL Plugin for Neo4j
 ======================================================
 [![License][mit-image]][mit-url] [![CircleCI][ci-image]][ci-url] [![CircleCI][ci-image-dev]][ci-url-dev] <sup>(dev)</sup>
 
-This is a plugin for the [Neo4j graph database](http://neo4j.com/) (v3.5) that provides the [GraphiQL](https://github.com/graphql/graphiql) web application via `<neo4jurl>/graphiql/` url.
+This is a plugin for the [Neo4j graph database](http://neo4j.com/) (v3.5) that provides the [GraphiQL](https://github.com/graphql/graphiql) web application via `<neo4j-url>/graphiql/` url. Note the trailing slash!
 
 Requirements
  * Neo4j
@@ -26,7 +26,7 @@ NOTE: _Neo4j Desktop_: the configuration is available under *Manage -> Settings*
 Usage
 -----
 
-Navigate to `<neo4jurl>/graphiql/` **Note the trailing slash**
+Navigate to `<neo4j-url>/graphiql/` **Note the trailing slash**
 
 Building
 --------
