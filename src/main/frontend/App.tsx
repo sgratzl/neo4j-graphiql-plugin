@@ -29,7 +29,7 @@ export default class App extends React.Component<IAppProps, IAppState> {
       const eq = entry.indexOf('=');
       if (eq >= 0) {
         const key = decodeURIComponent(entry.slice(0, eq)) as keyof IAppState;
-        parameters[key] = decodeURIComponent(entry.slice(eq + 1));
+        (parameters as any)[key] = decodeURIComponent(entry.slice(eq + 1));
       }
     });
 
